@@ -3,6 +3,7 @@ package database
 import (
 	"fmt"
 	"log"
+	"os"
 	"sql-api-gorm/models"
 
 	"gorm.io/driver/postgres"
@@ -10,11 +11,11 @@ import (
 )
 
 var (
-	host     = "localhost"
-	user     = "postgres"
-	password = "admin"
-	port     = "5432"
-	dbname   = "book_gorm"
+	host     = os.Getenv("PGHOST")
+	user     = os.Getenv("PGUSER")
+	password = os.Getenv("PGPASSWORD")
+	port     = os.Getenv("PGPORT")
+	dbname   = os.Getenv("PGDATABASE")
 	db       *gorm.DB
 	err      error
 )
